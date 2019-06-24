@@ -77,7 +77,11 @@ static const CGFloat KKDefaultBordersSpacing = 10;
 - (void)configureDefaultValues {
     self.delegate = self;
     self.adjustsFontSizeToFitWidth = NO;
-    self.keyboardType = UIKeyboardTypeNumberPad;
+    if (@available(iOS 10.0, *)) {
+        self.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
+    } else {
+        self.keyboardType = UIKeyboardTypeNumberPad;
+    }
     self.textAlignment = NSTextAlignmentLeft;
     self.borderStyle = UITextBorderStyleNone;
 }
@@ -284,7 +288,11 @@ static const CGFloat KKDefaultBordersSpacing = 10;
 }
 
 - (void)setKeyboardType:(UIKeyboardType)keyboardType {
-    super.keyboardType = UIKeyboardTypeNumberPad;
+    if (@available(iOS 10.0, *)) {
+        super.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
+    } else {
+        super.keyboardType = UIKeyboardTypeNumberPad;
+    }
 }
 
 - (void)setTextAlignment:(NSTextAlignment)textAlignment {
@@ -309,7 +317,7 @@ static const CGFloat KKDefaultBordersSpacing = 10;
 }
 
 - (BOOL)isOnlyNumbersString:(NSString *)string {
-    NSCharacterSet *notDigits = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    NSCharacterSet *notDigits = [[NSCharacterSet characterSetWithCharactersInString:@"0123456789"] invertedSet];
     return [string rangeOfCharacterFromSet:notDigits].location == NSNotFound;
 }
 
