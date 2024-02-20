@@ -1,0 +1,4 @@
+module ios_pinCodeTextField {
+    header "/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField-Swift.h"
+    requires objc
+}

@@ -1,0 +1,80 @@
+client:
+  name: basic
+tools: {}
+targets:
+  "PackageStructure": ["<PackageStructure>"]
+  "ios_pinCodeTextField-debug.module": ["<ios_pinCodeTextField-debug.module>"]
+  "ios_pinCodeTextFieldPackageTests-debug.test": ["<ios_pinCodeTextFieldPackageTests-debug.test>"]
+  "ios_pinCodeTextFieldTests-debug.module": ["<ios_pinCodeTextFieldTests-debug.module>"]
+  "main": ["<ios_pinCodeTextField-debug.module>"]
+  "test": ["<ios_pinCodeTextField-debug.module>","<ios_pinCodeTextFieldPackageTests-debug.test>","<ios_pinCodeTextFieldTests-debug.module>"]
+default: "main"
+nodes:
+  "/Users/stan/thechefz/github/ios_pinCodeTextField/Sources/ios_pinCodeTextField/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+  "/Users/stan/thechefz/github/ios_pinCodeTextField/Tests/ios_pinCodeTextFieldTests/":
+    is-directory-structure: true
+    content-exclusion-patterns: [".git",".build"]
+commands:
+  "<ios_pinCodeTextField-debug.module>":
+    tool: phony
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField.swift.o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.swiftmodule"]
+    outputs: ["<ios_pinCodeTextField-debug.module>"]
+
+  "<ios_pinCodeTextFieldPackageTests-debug.test>":
+    tool: phony
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldPackageTests.xctest/Contents/MacOS/ios_pinCodeTextFieldPackageTests"]
+    outputs: ["<ios_pinCodeTextFieldPackageTests-debug.test>"]
+
+  "<ios_pinCodeTextFieldTests-debug.module>":
+    tool: phony
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.build/ios_pinCodeTextFieldTests.swift.o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.swiftmodule"]
+    outputs: ["<ios_pinCodeTextFieldTests-debug.module>"]
+
+  "C.ios_pinCodeTextField-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/Sources/ios_pinCodeTextField/ios_pinCodeTextField.swift"]
+    outputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField.swift.o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.swiftmodule"]
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "ios_pinCodeTextField"
+    module-output-path: "/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.swiftmodule"
+    import-paths: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug"]
+    temps-path: "/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build"
+    objects: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField.swift.o"]
+    other-args: ["-target","arm64-apple-macosx10.13","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-emit-objc-header","-emit-objc-header-path","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField-Swift.h","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-package-name","ios_pincodetextfield"]
+    sources: ["/Users/stan/thechefz/github/ios_pinCodeTextField/Sources/ios_pinCodeTextField/ios_pinCodeTextField.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "C.ios_pinCodeTextFieldPackageTests-debug.test":
+    tool: shell
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.build/ios_pinCodeTextField.swift.o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.build/ios_pinCodeTextFieldTests.swift.o"]
+    outputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldPackageTests.xctest/Contents/MacOS/ios_pinCodeTextFieldPackageTests"]
+    description: "Linking ./.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldPackageTests.xctest/Contents/MacOS/ios_pinCodeTextFieldPackageTests"
+    args: ["/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc","-L","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug","-o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldPackageTests.xctest/Contents/MacOS/ios_pinCodeTextFieldPackageTests","-module-name","ios_pinCodeTextFieldPackageTests","-Xlinker","-bundle","-Xlinker","-rpath","-Xlinker","@loader_path/../../../","@/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldPackageTests.product/Objects.LinkFileList","-target","arm64-apple-macosx13.0","-Xlinker","-add_ast_path","-Xlinker","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.swiftmodule","-Xlinker","-add_ast_path","-Xlinker","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.swiftmodule","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib"]
+
+  "C.ios_pinCodeTextFieldTests-debug.module":
+    tool: swift-compiler
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/Tests/ios_pinCodeTextFieldTests/ios_pinCodeTextFieldTests.swift","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextField.swiftmodule"]
+    outputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.build/ios_pinCodeTextFieldTests.swift.o","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.swiftmodule"]
+    executable: "/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin/swiftc"
+    module-name: "ios_pinCodeTextFieldTests"
+    module-output-path: "/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.swiftmodule"
+    import-paths: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug"]
+    temps-path: "/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.build"
+    objects: ["/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ios_pinCodeTextFieldTests.build/ios_pinCodeTextFieldTests.swift.o"]
+    other-args: ["-target","arm64-apple-macosx13.0","-swift-version","5","-enable-batch-mode","-index-store-path","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/index/store","-Onone","-enable-testing","-g","-j8","-DSWIFT_PACKAGE","-DDEBUG","-module-cache-path","/Users/stan/thechefz/github/ios_pinCodeTextField/.build/arm64-apple-macosx/debug/ModuleCache","-parseable-output","-parse-as-library","-sdk","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-F","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-I","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-L","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/usr/lib","-Xcc","-isysroot","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.2.sdk","-Xcc","-F","-Xcc","/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/Library/Frameworks","-Xcc","-fPIC","-package-name","ios_pincodetextfield"]
+    sources: ["/Users/stan/thechefz/github/ios_pinCodeTextField/Tests/ios_pinCodeTextFieldTests/ios_pinCodeTextFieldTests.swift"]
+    is-library: true
+    enable-whole-module-optimization: false
+    num-threads: 8
+
+  "PackageStructure":
+    tool: package-structure-tool
+    inputs: ["/Users/stan/thechefz/github/ios_pinCodeTextField/Sources/ios_pinCodeTextField/","/Users/stan/thechefz/github/ios_pinCodeTextField/Tests/ios_pinCodeTextFieldTests/","/Users/stan/thechefz/github/ios_pinCodeTextField/Package.swift","/Users/stan/thechefz/github/ios_pinCodeTextField/Package.resolved"]
+    outputs: ["<PackageStructure>"]
+    description: "Planning build"
+    allow-missing-inputs: true
+
